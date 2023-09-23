@@ -1,0 +1,4 @@
+#Sat Sep 23 19:58:17 IST 2023
+base.0=/Users/gopisiva/taskoctohub/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

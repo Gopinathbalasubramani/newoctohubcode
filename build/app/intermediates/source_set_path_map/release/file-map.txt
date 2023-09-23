@@ -1,0 +1,13 @@
+com.example.taskoctohub.app-core-1.6.0-0 /Users/gopisiva/.gradle/caches/transforms-3/46ba99fe9efa61652d55d750c2b6c036/transformed/core-1.6.0/res
+com.example.taskoctohub.app-jetified-window-java-1.0.0-beta04-1 /Users/gopisiva/.gradle/caches/transforms-3/70d74eab8f9ca2c2a65123954666da04/transformed/jetified-window-java-1.0.0-beta04/res
+com.example.taskoctohub.app-jetified-window-1.0.0-beta04-2 /Users/gopisiva/.gradle/caches/transforms-3/82f218b30ba1b0bb05bf622761b8068e/transformed/jetified-window-1.0.0-beta04/res
+com.example.taskoctohub.app-jetified-annotation-experimental-1.1.0-3 /Users/gopisiva/.gradle/caches/transforms-3/d0f5972ec434f1dda0a7cc6ca8f145d8/transformed/jetified-annotation-experimental-1.1.0/res
+com.example.taskoctohub.app-main-4 /Users/gopisiva/taskoctohub/android/app/src/main/res
+com.example.taskoctohub.app-release-5 /Users/gopisiva/taskoctohub/android/app/src/release/res
+com.example.taskoctohub.app-pngs-6 /Users/gopisiva/taskoctohub/build/app/generated/res/pngs/release
+com.example.taskoctohub.app-resValues-7 /Users/gopisiva/taskoctohub/build/app/generated/res/resValues/release
+com.example.taskoctohub.app-rs-8 /Users/gopisiva/taskoctohub/build/app/generated/res/rs/release
+com.example.taskoctohub.app-mergeReleaseResources-9 /Users/gopisiva/taskoctohub/build/app/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.example.taskoctohub.app-mergeReleaseResources-10 /Users/gopisiva/taskoctohub/build/app/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.example.taskoctohub.app-merged_res-11 /Users/gopisiva/taskoctohub/build/app/intermediates/merged_res/release
+com.example.taskoctohub.app-packaged_res-12 /Users/gopisiva/taskoctohub/build/shared_preferences_android/intermediates/packaged_res/release
