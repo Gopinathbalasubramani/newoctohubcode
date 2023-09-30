@@ -1,4 +1,4 @@
-com.example.taskoctohub
+com.example.octohubtask
 attr activityAction
 attr activityName
 attr alpha

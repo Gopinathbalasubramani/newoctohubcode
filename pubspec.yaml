@@ -1,4 +1,4 @@
-name: taskoctohub
+name: octohubtask
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: '>=3.1.2 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -38,13 +38,7 @@ dependencies:
   intl: ^0.18.1
   flutter_svg: ^2.0.7
   flutter_switch: ^0.3.2
-  persistent_bottom_nav_bar: ^5.0.1
-  http: ^1.1.0
-  provider: ^6.0.5
-  shared_preferences: ^2.2.1
-
-  encrypt: ^5.0.3
-  string_validator: ^1.0.0
+  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +72,7 @@ flutter:
         - asset: fonts/OpenSans-Light.ttf
         - asset: fonts/OpenSans-Regular.ttf
         - asset: fonts/OpenSans-SemiBold.ttf
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

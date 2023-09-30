@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:octohubtask/Utils/color.dart';
 
-
-
-import '../../Res/Utils/color.dart';
 import 'CalenderListView.dart';
 
 class ActivatePage extends StatefulWidget {

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:intl/intl.dart';
 
-
-import '../../Res/Utils/color.dart';
+import '../../Utils/color.dart';
 import '../BottomNavigationBar/bottomtabbar.dart';
 class BottomSheetPage extends StatefulWidget {
   const BottomSheetPage({super.key});
@@ -43,188 +42,186 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
     return null;
   }
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        height: 480,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  <Widget>[
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Task form'),IconButton(onPressed: (){
-                    Navigator.pop(context);
-                  }, icon: Icon(Icons.close_rounded,color: Colors.black,size: 20,))
-                ],),
-              SizedBox(height: 10,),
-              Form(
-                key: _formKey,
-                //autovalidateMode: _autoValidate,
-                child: Padding(
-                  padding:  EdgeInsets.symmetric(vertical: 2.0),
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        controller: _titleCtrl,
-                        // validator: (value) => Validate.getMsg('title', value ??''),
-                        decoration: buildInputDecoration(
-                          false,
-                          'Enter the task title',
-                          iconData: Icons.edit,
-                        ),
+    return SizedBox(
+      height: 480,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  <Widget>[
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Task form'),IconButton(onPressed: (){
+                  Navigator.pop(context);
+                }, icon: Icon(Icons.close_rounded,color: Colors.black,size: 20,))
+              ],),
+            SizedBox(height: 10,),
+            Form(
+              key: _formKey,
+              //autovalidateMode: _autoValidate,
+              child: Padding(
+                padding:  EdgeInsets.symmetric(vertical: 2.0),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: _titleCtrl,
+                      // validator: (value) => Validate.getMsg('title', value ??''),
+                      decoration: buildInputDecoration(
+                        false,
+                        'Enter the task title',
+                        iconData: Icons.edit,
                       ),
-                      SizedBox(height: 10),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () => selectDate(),
-                              child: AbsorbPointer(
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: _dateCtrl,
-                                  // validator: (value) => Validate.getMsg(
-                                  //   'date',
-                                  //   value ??'',
-                                  // ),
-                                  decoration: buildInputDecoration(
-                                    false,
-                                    'Date',
-                                    iconData: Icons.calendar_today,
-                                  ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => selectDate(),
+                            child: AbsorbPointer(
+                              child: TextFormField(
+                                readOnly: true,
+                                controller: _dateCtrl,
+                                // validator: (value) => Validate.getMsg(
+                                //   'date',
+                                //   value ??'',
+                                // ),
+                                decoration: buildInputDecoration(
+                                  false,
+                                  'Date',
+                                  iconData: Icons.calendar_today,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(width: 5),
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () async {
+                        ),
+                        SizedBox(width: 5),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () async {
 
-      TimeOfDay? pickedTime =  await showTimePicker(
-      initialTime: TimeOfDay.now(),
-      context: context,
-      );
+    TimeOfDay? pickedTime =  await showTimePicker(
+    initialTime: TimeOfDay.now(),
+    context: context,
+    );
 
-      if(pickedTime != null ){
-      print(pickedTime.format(context));   //output 10:51 PM
+    if(pickedTime != null ){
+    print(pickedTime.format(context));   //output 10:51 PM
 
-      setState(() {
-      _timeCtrl.text = pickedTime.format(context); //set the value of text field.
-      });
-      }else{
-      print("Time is not selected");
-      }
-      },
+    setState(() {
+    _timeCtrl.text = pickedTime.format(context); //set the value of text field.
+    });
+    }else{
+    print("Time is not selected");
+    }
+    },
 
-                              child: AbsorbPointer(
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: _timeCtrl,
-                                  // validator: (value) => Validate.getDateTimeMsg(
-                                  //   'time',
-                                  //   value!,
-                                  // ),
-                                  decoration: buildInputDecoration(
-                                    false,
-                                    'Time',
-                                    iconData: Icons.alarm,
-                                  ),
+                            child: AbsorbPointer(
+                              child: TextFormField(
+                                readOnly: true,
+                                controller: _timeCtrl,
+                                // validator: (value) => Validate.getDateTimeMsg(
+                                //   'time',
+                                //   value!,
+                                // ),
+                                decoration: buildInputDecoration(
+                                  false,
+                                  'Time',
+                                  iconData: Icons.alarm,
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      maxLines: 3,
+                      maxLength: 100,
+                      controller: _noteCtrl,
+                      //validator: (value) => Validate.getMsg('note', value!),
+                      decoration: buildInputDecoration(
+                        true,
+                        'Enter a little note to describe the task', iconData: IconData(1),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+
+                          FlutterSwitch(
+                            activeColor: Colors.green,
+                            width: 70.0,
+                            height: 30.0,
+                            valueFontSize: 15.0,
+                            toggleSize: 25.0,
+                            value: status,
+                            borderRadius: 30.0,
+                            padding: 8.0,
+                            showOnOff: true,
+                            onToggle: (val) {
+                              setState(() {
+                                status = val;
+                              });
+                            },
+                          ),
+                          Text(
+                            'Set reminder for this task ?',
+                            style: TextStyle(
+                              fontFamily: 'Open Sans',
+                              color: darkGrey,
+                              fontSize: 15,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        maxLines: 3,
-                        maxLength: 100,
-                        controller: _noteCtrl,
-                        //validator: (value) => Validate.getMsg('note', value!),
-                        decoration: buildInputDecoration(
-                          true,
-                          'Enter a little note to describe the task', iconData: IconData(1),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: primary,
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15.0),
+                            textStyle: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold)),
+                //           TextEditingController _titleCtrl = TextEditingController();
+                //         TextEditingController _noteCtrl= TextEditingController();
+                //   TextEditingController _dateCtrl= TextEditingController();
+                // TextEditingController _timeCtrl= TextEditingController();
+                        onPressed: _titleCtrl.text.isNotEmpty  && _noteCtrl.text.isNotEmpty &&_dateCtrl.text.isNotEmpty&&_timeCtrl.text.isNotEmpty?  () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BottomTabsCustomWidget(
+                                  menuScreenContext: context,
+                                  selectedIndex: 0,
+                                )),
+                          );
+
+                        }:null, child: Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Open Sans',
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-
-                            FlutterSwitch(
-                              activeColor: Colors.green,
-                              width: 70.0,
-                              height: 30.0,
-                              valueFontSize: 15.0,
-                              toggleSize: 25.0,
-                              value: status,
-                              borderRadius: 30.0,
-                              padding: 8.0,
-                              showOnOff: true,
-                              onToggle: (val) {
-                                setState(() {
-                                  status = val;
-                                });
-                              },
-                            ),
-                            Text(
-                              'Set reminder for this task ?',
-                              style: TextStyle(
-                                fontFamily: 'Open Sans',
-                                color: darkGrey,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
-                        ),
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        height: 50,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: primary,
-                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15.0),
-                              textStyle: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold)),
-                  //           TextEditingController _titleCtrl = TextEditingController();
-                  //         TextEditingController _noteCtrl= TextEditingController();
-                  //   TextEditingController _dateCtrl= TextEditingController();
-                  // TextEditingController _timeCtrl= TextEditingController();
-                          onPressed: _titleCtrl.text.isNotEmpty  && _noteCtrl.text.isNotEmpty &&_dateCtrl.text.isNotEmpty&&_timeCtrl.text.isNotEmpty?  () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BottomTabsCustomWidget(
-                                    menuScreenContext: context,
-                                    selectedIndex: 0,
-                                  )),
-                            );
+                    )
 
-                          }:null, child: Text(
-                          'Submit',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Open Sans',
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                        ),
-                      )
-
-                    ],
-                  ),
+                  ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

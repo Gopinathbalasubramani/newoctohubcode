@@ -1,6 +1,6 @@
 {
-    "name": "taskoctohub",
-    "short_name": "taskoctohub",
+    "name": "octohubtask",
+    "short_name": "octohubtask",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

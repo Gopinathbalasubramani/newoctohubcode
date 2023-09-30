@@ -1,4 +1,0 @@
-enum Status { LOADING, COMPLETED, ERROR }
-enum LoginEnum {LOGIN, REGISTER,UPDATE, DELETE, NONE }
-
-
