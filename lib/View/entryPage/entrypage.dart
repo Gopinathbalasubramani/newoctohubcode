@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:intl/intl.dart';
-import '../../Utils/color.dart';
+import 'package:provider/provider.dart';
+
+import '../../Data/response/Status.dart';
+import '../../Models/Login/ResgisterResponse.dart';
+import '../../Res/Utils/color.dart';
+import '../../ViewModel/Login/LoginVM.dart';
 import '../BottomNavigationBar/bottomtabbar.dart';
 import 'bottomsheet.dart';
 
@@ -17,11 +22,13 @@ class Entrypage extends StatefulWidget {
 class _EntrypageState extends State<Entrypage> {
   @override
   final _formKey = GlobalKey<FormState>();
+
   TextEditingController _titleCtrl = TextEditingController();
   TextEditingController _noteCtrl= TextEditingController();
   TextEditingController _dateCtrl= TextEditingController();
   TextEditingController _timeCtrl= TextEditingController();
   bool status = false;
+  LoginVM loginModel =LoginVM();
   selectDate(
 
       ) async {
@@ -99,7 +106,8 @@ var screenWidth = MediaQuery.of(context).size.width;
                       fontWeight: FontWeight.w300,
                     ),
                   ),
-                  )
+                  ),
+
                 ],
               ),
             ),

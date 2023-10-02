@@ -3,8 +3,9 @@ library date_picker_timeline;
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import '../../Utils/color.dart';
-import '../../Utils/tyedef.dart';
+
+import '../../Res/Utils/color.dart';
+import '../../Res/Utils/tyedef.dart';
 import '../core/date_widget.dart';
 import '../core/style.dart';
 

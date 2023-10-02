@@ -2,13 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:octohubtask/View/Dashboard/activepage.dart';
-import 'package:octohubtask/View/Dashboard/allPage.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-
-
-import '../../Utils/color.dart';
+import '../../Res/Utils/color.dart';
+import '../Dashboard/activepage.dart';
+import '../Dashboard/AllPage/allPage.dart';
 import '../Dashboard/completedPage.dart';
 import 'bootmNavebar.dart';
 class BottomTabsCustomWidget extends StatefulWidget {
@@ -57,7 +54,7 @@ class _BottomTabsCustomWidgetState extends State<BottomTabsCustomWidget> {
 
   List<Widget> _buildScreens() {
     return [
-    AllPage(),
+      AllPage(),
       ActivatePage(),
       CompletedPage()
     ];
@@ -91,7 +88,7 @@ class _BottomTabsCustomWidgetState extends State<BottomTabsCustomWidget> {
             ],
           ),
         ),
-        title: "Medical Notes",
+        title: "",
         activeColorPrimary: primarySoft,
         inactiveColorPrimary: Colors.grey,
       ),
@@ -117,7 +114,7 @@ class _BottomTabsCustomWidgetState extends State<BottomTabsCustomWidget> {
             ],
           ),
         ),
-        title: "My Profile",
+        title: "",
         activeColorPrimary: primaryAccent,
         inactiveColorPrimary: Colors.grey,
       ),
@@ -143,7 +140,7 @@ class _BottomTabsCustomWidgetState extends State<BottomTabsCustomWidget> {
             ],
           ),
         ),
-        title: "My Profile",
+        title: "",
         activeColorPrimary: primaryAccent,
         inactiveColorPrimary: Colors.grey,
       ),

@@ -2,12 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:taskoctohub/View/Dashboard/taskDetailsPage.dart';
 
-import '../../Utils/color.dart';
+
+import '../../Res/Utils/color.dart';
 import 'CalenderListView.dart';
 
 class CompletedPage extends StatefulWidget {
-  const CompletedPage({super.key});
+  final bool? complete;
+  const CompletedPage({super.key,this.complete});
 
   @override
   State<CompletedPage> createState() => _CompletedPageState();
@@ -134,118 +137,129 @@ height: 60,width: 60,
                 ),
                 Divider(),
                 Visibility(
-                  visible: true,
-                  child: Container(
-                    height: 100,
-                    width: double.infinity,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
-                        color:disabled
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: 70,
-                              margin: EdgeInsets.only(left: 16,top: 16,bottom: 16),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white
+                  visible: widget.complete ?? false,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TaskDetailsPage(
+
+                            )),
+                      );
+                    },
+                    child: Container(
+                      height: 100,
+                      width: double.infinity,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                          color:disabled
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 70,
+                                margin: EdgeInsets.only(left: 16,top: 16,bottom: 16),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        '02',
+                                        maxLines: 2,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 30,
+                                            fontFamily: 'Open Sans',
+                                            color: Colors.grey
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      Text(
+                                        '25 PM',
+                                        maxLines: 2,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                            fontFamily: 'Open Sans',
+                                            color: Colors.grey
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              Container(
+                                margin: EdgeInsets.only(top: 16,left: 8),
+                                width: MediaQuery.of(context).size.width * 0.50,
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '02',
+                                      'Attend the flutter meet',
                                       maxLines: 2,
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 30,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 15,
                                           fontFamily: 'Open Sans',
-                                          color: Colors.grey
+                                          color: Colors.white
                                       ),
-                                      overflow: TextOverflow.ellipsis,
+                                      // overflow: TextOverflow.ellipsis,
                                     ),
+                                    SizedBox(height: 5,),
                                     Text(
-                                      '25 PM',
+                                      'I have attend the meeting where we should showcase some quick app to build with build ',
                                       maxLines: 2,
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10,
                                           fontFamily: 'Open Sans',
-                                          color: Colors.grey
+                                          color: Colors.white
                                       ),
-                                      overflow: TextOverflow.ellipsis,
+                                      //  overflow: TextOverflow.ellipsis,
                                     ),
+                                    SizedBox(height: 5,),
+                                    Text(
+                                      '2023 may 20',
+                                      maxLines: 2,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 15,
+                                          fontFamily: 'Open Sans',
+                                          color: Colors.white
+                                      ),
+                                      // overflow: TextOverflow.ellipsis,
+                                    ),
+
                                   ],
                                 ),
                               ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 16,left: 8),
-                              width: MediaQuery.of(context).size.width * 0.50,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Attend the flutter meet',
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 15,
-                                        fontFamily: 'Open Sans',
-                                        color: Colors.white
-                                    ),
-                                    // overflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: 5,),
-                                  Text(
-                                    'I have attend the meeting where we should showcase some quick app to build with build ',
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 10,
-                                        fontFamily: 'Open Sans',
-                                        color: Colors.white
-                                    ),
-                                    //  overflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: 5,),
-                                  Text(
-                                    '2023 may 20',
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 15,
-                                        fontFamily: 'Open Sans',
-                                        color: Colors.white
-                                    ),
-                                    // overflow: TextOverflow.ellipsis,
-                                  ),
 
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16, top: 16,bottom: 16),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16, top: 16,bottom: 16),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
 Container(
   height: 20,
     width: 20,
     decoration: BoxDecoration(shape: BoxShape.circle,
 color: greenAccent),child: Icon(Icons.check,color: Colors.white,size: 15,),),
-                              Icon(Icons.delete,color: Colors.grey,)
-                            ],
-                          ),
-                        )
-                      ],
+                                Icon(Icons.delete,color: Colors.grey,)
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -260,7 +274,7 @@ color: greenAccent),child: Icon(Icons.check,color: Colors.white,size: 15,),),
               ],
             ),
             Visibility(
-              visible: false,
+              visible: widget.complete != true ,
               child: Align(
                 alignment: Alignment.center,
                 child: Column(

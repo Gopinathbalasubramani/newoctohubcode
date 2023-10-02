@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../../Utils/color.dart';
-import 'CalenderListView.dart';
+import '../../../Res/Utils/color.dart';
+import '../CalenderListView.dart';
+import 'CompleteBottomSheet.dart';
 
 class AllPage extends StatefulWidget {
   const AllPage({super.key});
@@ -172,7 +173,9 @@ class _AllPageState extends State<AllPage> {
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
 color:primaryAccent
               ),
-              child: Row(
+              child:
+
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -285,7 +288,24 @@ color:primaryAccent
                             });
                           },
                         ),
-                        Icon(Icons.delete,color: Colors.white,)
+                        GestureDetector(
+                          onTap: (){
+                            showModalBottomSheet<void>(
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft:  Radius.circular(10))),
+                              // context and builder are
+                              // required properties in this widget
+                              context: context,
+                              builder: (BuildContext context) {
+                                // we set up a container inside which
+                                // we create center column and display text
+
+                                // Returning SizedBox instead of a Container
+                                return  CompleteBottomSheet();
+                              },
+                            );
+
+                          },
+                            child: Icon(Icons.delete,color: Colors.white,))
                       ],
                     ),
                   )

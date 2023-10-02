@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../Utils/tyedef.dart';
+import '../../Res/Utils/tyedef.dart';
+
+
 
 
 class DateWidget extends StatelessWidget {
